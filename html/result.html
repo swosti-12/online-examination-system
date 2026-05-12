@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Exam Platform</title>
+    <link rel="stylesheet" href="style1.css" />
+
+</head>
+<body>
+  <!-- header where navigation is presented that connects other pages -->
+  <header>
+    <a href="#" class="brand">EaseExam</a>   <!-- name of the website -->
+
+    <div class="nav-container">
+      <!-- nav links to other pages-->
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+        <a href="exams.html" data-route>Exams</a>
+        <a href="about.html" data-route>About</a>
+      </nav>
+
+      <div class="right">
+        <a class="btn small ghost" href="login.html?role=student" data-route data-role="student">Login</a>
+        <a class="btn small primary" href="register.html" data-route>Register</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="hero-section">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 id="hero-title">Your Future, One Exam Away!</h1>
+      <p id="hero-subtext">Enhance knowledge and skills through our online platform.</p>
+      <div class="cta-buttons">
+        <button class="cta-btn primary">Get Started</button>
+        <button class="cta-btn secondary">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Track Icon">
+      <h3>Track Performance</h3>
+      <p>Monitor your progress and results with detailed analytics and insights.</p>
+    </div>
+    <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1000/1000775.png" alt="Secure Icon">
+      <h3>Secure Exams</h3>
+      <p>Experience a safe cheat-free environment with our proctoring technology.</p>
+    </div>
+    <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1000/1000765.png" alt="Book Icon">
+      <h3>For Students, For Teachers</h3>
+      <p>Tools and resources for both learners and educators to succeed.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> EaseExam | Online Examination System</p>
+  </footer>
+  
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    const titles = [
+      "Your Future, One Exam Away!",
+      "Achieve Your Dreams!",
+      "Learn Anytime, Anywhere!",
+      "Grow Your Skills Today!"
+    ];
+
+    const backgrounds = [
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    ];
+
+    let index = 0;
+    const heroTitle = document.getElementById("hero-title");
+    const heroSection = document.getElementById("hero-section");
+
+    function updateHero() {
+      heroTitle.style.opacity = 0;
+
+      setTimeout(() => {
+        heroTitle.textContent = titles[index];
+        heroSection.style.backgroundImage = `url('${backgrounds[index]}')`;
+        heroTitle.style.opacity = 1;
+      }, 500);
+
+      index = (index + 1) % titles.length;
+    }
+
+    // Set initial background
+    heroSection.style.backgroundImage = `url('${backgrounds[0]}')`;
+
+    // Start the interval loop
+    setInterval(updateHero, 4000);
+  </script>
+</body>
+</html>

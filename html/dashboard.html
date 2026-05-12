@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - EaseExam</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; background: #f9fafb; }
+    
+    header {
+      background: linear-gradient(135deg, #4f46e5, #22d3ee);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { font-size: 1.5rem; }
+    header nav a { color: #fff; margin-left: 1rem; text-decoration: none; font-weight: bold; }
+    header nav a:hover { text-decoration: underline; }
+
+    .container { padding: 2rem; }
+    .cards { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    .card {
+      background: #fff;
+      flex: 1 1 200px;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { color: #4f46e5; margin-bottom: 0.5rem; }
+    .card p { color: #555; margin-bottom: 1rem; }
+    .card a {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #10b981;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .card a:hover { background: #0e9e74; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EaseExam Dashboard</h1>
+    <nav>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="cards" style="display:none;">
+      <div class="card">
+        <h3>Manage Users</h3>
+        <p>View, edit or delete students and teachers.</p>
+        <a href="#">Go</a>
+      </div>
+      <div class="card">
+        <h3>All Exams</h3>
+        <p>View, edit or delete all exams in the system.</p>
+        <a href="#">Go</a>
+      </div>
+    </div>
+
+    <!-- Teacher Dashboard -->
+    <div id="teacher-dashboard" class="cards" style="display:none;">
+      <div class="card">
+        <h3>Create Exam</h3>
+        <p>Add a new exam with questions for your students.</p>
+        <a href="#">Go</a>
+      </div>
+      <div class="card">
+        <h3>View Results</h3>
+        <p>Check students’ performance for your exams.</p>
+        <a href="#">Go</a>
+      </div>
+    </div>
+
+    <!-- Student Dashboard -->
+    <div id="student-dashboard" class="cards" style="display:none;">
+      <div class="card">
+        <h3>Available Exams</h3>
+        <p>View exams you can take.</p>
+        <a href="#">Go</a>
+      </div>
+      <div class="card">
+        <h3>My Results</h3>
+        <p>Check your past exam results.</p>
+        <a href="#">Go</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Example: Set user role (in real system, fetch from session/database)
+    let userRole = 'student'; // change to 'admin' or 'teacher' to test
+
+    if(userRole === 'admin') {
+      document.getElementById('admin-dashboard').style.display = 'flex';
+    } else if(userRole === 'teacher') {
+      document.getElementById('teacher-dashboard').style.display = 'flex';
+    } else if(userRole === 'student') {
+      document.getElementById('student-dashboard').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
